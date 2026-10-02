@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block childpage %}
+          <!-- Slider -->
+            <div class="row slider bg-color2">
+              <div class="col-sm-10 mx-auto">
+                <div class="row">
+                  <div class="col-sm-7 pt-5">
+                    <div>An 9001:2015 Certified Software Company</div>
+                    <div class="fs-1 fw-bold">
+                      Savor Bold Fusion Recipes Made Fresh Using Premium <b class="text-color1">Quality Ingredients Daily</b></div>
+                    <hr class="w-50"/>
+                    <div>
+                      Experience an exciting blend of flavors inspired by cuisines from around the world. Our chefs prepare every dish using fresh, premium ingredients and creative recipes that deliver unforgettable taste. Whether you're craving comfort food or something adventurous, every meal is crafted to satisfy your appetite and delight your senses.
+                    </div><br/>
+                    
+
+                    <a href="/user/booking/" class="btn1 d-block text-center text-dark">Book Table Now</a> 
+                  </div>
+                  <div class="col-sm-5 py-5">
+                    <!-- b slider -->
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="2000">
+      <img src="{% static 'images/home-one/banner/banner-slider1.png'%}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'images/home-one/banner/banner-slider2.png'%}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'images/home-one/banner/banner-slider3.png'%}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+                    <!-- b slider end  -->
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          <!-- end Slider -->
+           
+
+
+<div class="row heading py-5">
+  <div class="col-sm-10 mx-auto">
+    <div class="row">
+       <div class="fs-3 text-light">Our <b class="text-color1">Top Categories</b>
+      <hr class="w-25"/>
+    </div>
+    </div>
+    <div class="row">
+     {% for x in cdata %}
+       <!-- category-->
+       <div class="col-sm-3 p-2">
+        <div class="bg-light shadow-lg p-2 rounded-2 position-relative">
+          <img src="/{{x.category_picture}}" class="img-fluid"/>
+          <b class="badge bg-color1 text-dark rounded-1 position-absolute top-100 
+          start-50 translate-middle fs-5">
+            <i class="fa-solid fa-utensils"></i>
+            {{x.category_name}}</b>
+        </div>
+       </div>
+      <!-- category end -->
+       {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<!-- top offers items-->
+ <div class="row py-5">
+  <div class="col-sm-10 mx-auto">
+    <div class="row">
+       <div class="fs-3">Our <b class="text-color1">Top Offers Items | 
+       <a href="/user/offers/" class="text-decoration-none text-dark">Explore All Discounted Items</a>
+       </b> 
+      <hr class="w-50"/>
+    </div>
+    </div>
+    
+    <div class="row">
+      {% for x in products %}
+    <!-- offer box-->
+     <div class="col-sm-4">
+     <div class="card position-relative">
+      <b class="badge bg-success text-light rounded-1 position-absolute top-0 
+          start-50 translate-middle">
+            <i class="fa-solid fa-inr"></i>
+             Discount: {{x.discounted_price}} /-</b>
+      <img src="/{{x.picture}}" class="card-img-top"/>
+      <div class="card-body">
+        <p class="card-title fs-4 fw-bold">{{x.name}}</p>
+        <p>
+         <span> {{x.description}}</span><br/>
+         <b class="badge bg-color1 text-dark"><i class="fa-solid fa-inr"></i>
+           Price :</b> 
+         <b class="text-danger">{{x.price}}/-</b> 
+        </p>
+      </div>
+     </div>
+     </div>
+    <!-- offer box end -->
+     {% endfor %}
+    </div>
+  </div>
+ </div>
+<!-- top offers items end -->
+
+<!-- box -->
+<div class="row bg-color1  py-5">
+  <div class="col-sm-10 mx-auto">
+    <div class="row">
+      <!-- section -->
+      <div class="col-sm-3 border text-center bg-light p-3 shadow-lg">
+        <b class="fs-1">
+          🍽️
+          <span>5K</span>
+        </b> 	<br/>Happy Customers Served
+      </div>
+      <!-- section end -->
+        <!-- section -->
+      <div class="col-sm-3 border text-center bg-light p-3 shadow-lg">
+        <b class="fs-1">
+           🧑‍🍳 
+          <span>100+</span>
+        </b> 	<br/>	Expert Chefs
+      </div>
+      <!-- section end -->
+        <!-- section -->
+      <div class="col-sm-3 border text-center bg-light p-3 shadow-lg">
+        <b class="fs-1">
+           ⭐
+          <span>4.9</span>
+        </b> 	<br/>	Customer Rating
+      </div>
+      <!-- section end -->
+        <!-- section -->
+      <div class="col-sm-3 border text-center bg-light p-3 shadow-lg">
+        <b class="fs-1">
+           🍲
+          <span>200+</span>
+        </b> 	<br/>Fusion Dishes
+      </div>
+      <!-- section end -->
+       
+    </div>
+  </div>
+</div>
+<!-- box end -->
+
+<!-- Intro Section -->
+ <div class="row py-5 bg-color2">
+  <div class="col-sm-10 mx-auto pt-5">
+    <div class="row">
+    <div class="col-sm-5 position-relative">
+      <img class="position-absolute top-0 start-50 translate-middle" 
+      src="{% static 'images/home-one/restant2.png'%}" height="150px"/>
+      <img class="position-absolute top-50 start-0 translate-middle" 
+      src="{% static 'images/home-one/restant3.png'%}" height="150px"/>
+      <img class="position-absolute top-50 start-100 translate-middle"
+       src="{% static 'images/home-one/restant4.png'%}" height="150px"/>
+      <img class="position-absolute top-100 start-50 translate-middle" 
+      src="{% static 'images/home-one/restant5.png'%}" height="150px"/>
+      <img src="{% static 'images/home-one/restant.png'%}" class="img-fluid"/>
+    </div>
+    <div class="col-sm-7" style="text-align: justify;">
+      <p class="fs-4">About <b class="text-color1">Our Restaurant</b></p>
+      <hr class="w-50"/>
+      <p>
+        Welcome to Tasty  Food Junction  Restaurant, where every meal is crafted to bring people together through unforgettable flavors and exceptional hospitality. We believe that great food is more than just nourishment—it's an experience that creates memories, celebrates culture, and connects people. Our restaurant combines traditional recipes with modern culinary techniques to deliver a unique fusion of taste, freshness, and creativity.
+      </p>
+      
+      <p>
+         vegetables, premium spices, quality meats, and carefully sourced ingredients. Every plate reflects our commitment to quality, presentation, and customer satisfaction.
+      </p>
+    </div>
+    </div>
+  </div>
+ </div>
+<!-- Intro Section end -->
+
+
+
+
+{% endblock %}
